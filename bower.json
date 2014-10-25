@@ -1,0 +1,21 @@
+{
+  "name": "0hgame",
+  "version": "0.0.0",
+  "authors": [
+    "Jeroen Verfallie <verfalliejeroen@gmail.com>"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "dat.gui": "*"
+  }
+}
