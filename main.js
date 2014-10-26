@@ -7,7 +7,7 @@ var Cell = function() {
       this.y = y;
 
       this.alive = false;
-      this.wasAlive = false;
+      this.newAlive = false;
 
       this.lastAlive = 10000;
   };
@@ -17,7 +17,7 @@ var Cell = function() {
       writable: true,
 
       value: function(count) {
-          this.alive = this.alive ? count > 1 && count < 4 : count === 3;
+          this.newAlive = this.alive ? count > 1 && count < 4 : count === 3;
 
           this.lastAlive = this.alive ? 1 : this.lastAlive+3;
       }
@@ -27,6 +27,8 @@ var Cell = function() {
       writable: true,
 
       value: function(ctx, cs, h) {
+          this.alive = this.newAlive;
+
           ctx.fillStyle = 'hsl('+h+', '+Math.round(100/this.lastAlive)+'%, '+Math.round(60/this.lastAlive)+'%)';
           ctx.fillRect(this.x * cs, this.y * cs, cs, cs);
       }
@@ -202,10 +204,10 @@ var Grid = function() {
       writable: true,
 
       value: function() {
-
-          this.pulse((Math.random() * this.gridSize) >> 0, (Math.random() * this.gridSize) >> 0);
-
-          this.pulse((Math.random() * this.gridSize) >> 0, (Math.random() * this.gridSize) >> 0);
+          var _xx = (Math.random() * this.gridSize) >> 0;
+          var _yy = (Math.random() * this.gridSize) >> 0;
+          this.pulse(_xx, _yy);
+          this.pulse(_xx + 2, _yy + 2);
 
 
           for (_i = 0, _n = this.gridSize2; _i < _n; _i++) {
