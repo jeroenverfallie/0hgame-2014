@@ -58,10 +58,10 @@ class Grid {
     }
 
     update() {
-
-        this.pulse((Math.random() * this.gridSize) >> 0, (Math.random() * this.gridSize) >> 0);
-
-        this.pulse((Math.random() * this.gridSize) >> 0, (Math.random() * this.gridSize) >> 0);
+    	let xx = (Math.random() * this.gridSize) >> 0;
+    	let yy = (Math.random() * this.gridSize) >> 0;
+        this.pulse(xx, yy);
+        this.pulse(xx + 2, yy + 2);
 
 
         for (i = 0, n = this.gridSize2; i < n; i++) {
