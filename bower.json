@@ -16,6 +16,7 @@
     "tests"
   ],
   "devDependencies": {
-    "dat.gui": "*"
+    "dat.gui": "*",
+    "stats.js": "*"
   }
 }
